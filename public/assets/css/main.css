@@ -1,0 +1,1372 @@
+/*
+	Made By: Mixen
+
+	Colores:
+		Navegación y Cabecera:
+			Café  : rgb(165, 156, 136);
+			Negro : rgb(0, 0, 0);
+			Blanco: rgb(255, 255, 255);
+		Nosotros:
+			Azul Base   : rgb(36, 99, 130);
+			Azul Obscuro: rgb(22, 60, 79);
+*/
+
+@font-face {
+	font-family: Avenir;
+	src        : url('../fonts/avenir/Avenir-Lt.otf');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: Avenir;
+	src        : url('../fonts/avenir/Avenir-Reg.woff');
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: Avenir;
+	src        : url('../fonts/avenir/Avenir-Bold.woff');
+	font-weight: 300;
+}
+
+* {
+	font-family: Avenir, sans-serif;
+	font-size  : 1em;
+	font-weight: 200;
+	padding    : 0px;
+	margin     : 0px;
+	outline    : none;
+	box-sizing : border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display       : block;
+	pointer-events: none;
+}
+
+body {
+	background-color: rgb(255, 255, 255);
+}
+
+	body > button {
+		width           : 32px;
+		position        : fixed;
+		z-index         : 15;
+		background-color: transparent;
+		border          : none;
+		top             : 24px;
+		left            : 24px;
+		display         : none;
+	}
+
+		body > button > span {
+			display         : block;
+			width           : 100%;
+			height          : 2px;
+			margin-bottom   : 4px;
+			background-color: rgb(36, 99, 130);
+			transition      : all 0.3s;
+			box-shadow      : 0 0 16px rgba(255, 255, 255, 0.75);
+		}
+
+		body > button > span:last-of-type {
+			margin-bottom: 0px;
+		}
+
+	body > nav {
+		width           : 100%;
+		height          : 85px;
+		background-color: rgb(255, 255, 255);
+		position        : fixed;
+		top             : 0;
+		left            : 0;
+		z-index         : 20;
+		display         : flex;
+		flex-flow       : row wrap;
+		justify-content : space-between;
+		transition      : all 0.3s ease-out;
+	}
+
+		body > nav > section:nth-of-type(1) {
+			width           : 40%;
+			background-color: rgb(165, 156, 136);
+			padding-left    : 85px;
+			display         : flex;
+			align-items     : center;
+		}
+
+			body > nav > section:nth-of-type(1) > a {
+				display: block;
+				height : 50px;
+			}
+
+				body > nav > section:nth-of-type(1) > a > img {
+					height: 100%;
+				}
+
+		body > nav > section:nth-of-type(2) {
+			width      : 40%;
+			display    : flex;
+			align-items: center;
+		}
+
+			body > nav > section:nth-of-type(2) > ul {
+				list-style: none;
+			}
+
+				body > nav > section:nth-of-type(2) > ul > li {
+					display     : inline-block;
+					margin-right: 12px;
+				}
+
+				body > nav > section:nth-of-type(2) > ul > li:first-of-type {
+					margin-left: 40px
+				}
+
+				body > nav > section:nth-of-type(2) > ul > li:last-of-type {
+					margin-right: 0px
+				}
+
+					body > nav > section:nth-of-type(2) > ul > li > a {
+						display   : block;
+						color     : rgb(165, 156, 136);
+						transition: all 0.3s ease-out;
+						position  : relative;
+					}
+
+					body > nav > section:nth-of-type(2) > ul > li > a:hover {
+						color: rgb(0, 0, 0);
+					}
+
+					body > nav > section:nth-of-type(2) > ul > li > a:before {
+						content         : '';
+						width           : 0px;
+						height          : 1px;
+						background-color: rgb(165, 156, 136);
+						position        : absolute;
+						bottom          : 0px;
+						right           : 0px;
+						margin-bottom   : -4px;
+						transition      : all 0.3s ease-out;
+					}
+
+					body > nav > section:nth-of-type(2) > ul > li > a:hover:before {
+						width           : 24px;
+						background-color: rgb(0, 0, 0);
+					}
+
+		body > nav > section:nth-of-type(3) {
+			width           : 20%;
+			background-color: rgb(0, 0, 0);
+			color           : rgb(255, 255, 255);
+			display         : flex;
+			align-items     : center;
+		}
+
+			body > nav > section:nth-of-type(3) > i {
+				font-size   : 2em;
+				margin-left : 40px;
+				margin-right: 12px;
+			}
+
+			body > nav > section:nth-of-type(3) > section {
+				display: flex;
+				flex-direction: column;
+			}
+
+				body > nav > section:nth-of-type(3) > section > h1 {
+					font-size: 0.85em;
+				}
+
+				body > nav > section:nth-of-type(3) > section > a {
+					display    : inline-block;
+					color      : rgb(255, 255, 255);
+					font-weight: 300;
+					position   : relative;
+				}
+
+				body > nav > section:nth-of-type(3) > section > a:before {
+					content         : '';
+					width           : 100%;
+					height          : 1px;
+					background-color: rgb(255, 255, 255);
+					position        : absolute;
+					bottom          : -4px;
+					left            : 0px;
+					transform       : scale(0);
+					transition      : all 0.2s;
+				}
+
+				body > nav > section:nth-of-type(3) > section > a:hover:before {
+					transform: scale(1);
+				}
+
+	body > header {
+		width                : 100%;
+		height               : 100vh;
+		padding-top          : 85px;
+		padding-left         : 85px;
+		padding-right        : 85px;
+		border-left          : 85px solid rgb(165, 156, 136);
+		border-right         : 85px solid rgb(255, 255, 255);
+		background-size      : cover;
+		background-repeat    : no-repeat;
+		background-position  : center;
+		background-attachment: fixed;
+		position             : relative;
+		display              : flex;
+		align-items          : center;
+		justify-content      : center;
+		background-color: grey
+	}
+
+	body > #nosotros {
+		width         : 100%;
+		padding-bottom: 80px;
+		position      : relative;
+		z-index       : 12;
+	}
+
+		body > #nosotros > img {
+			width: 100%;
+		}
+
+		body > #nosotros > section {
+			width           : 100%;
+			background-color: rgb(255, 255, 255);
+			margin          : auto;
+			display         : flex;
+			align-items     : center;
+			justify-content : center;
+			flex-direction  : column;
+		}
+
+			body > #nosotros > section > span {
+				display        : block;
+				text-transform : uppercase;
+				font-weight    : 100;
+				font-size      : 0.95em;
+				margin-bottom  : 6px;
+				position       : relative;
+				display        : flex;
+				justify-content: center;
+			}
+
+			body > #nosotros > section > span:before {
+				content         : '';
+				width           : 3px;
+				height          : 200px;
+				background-color: rgb(165, 156, 136);
+				position        : absolute;
+				top             : -212px;
+				z-index         : 9;
+			}
+
+			body > #nosotros > section > h1 {
+				font-weight  : 300;
+				margin-bottom: 32px;
+			}
+
+			body > #nosotros > section > p {
+				width        : 50%;
+				margin-bottom: 32px;
+				text-align   : justify;
+			}
+
+			body > #nosotros > section > a {
+				color           : rgb(255, 255, 255);
+				padding         : 12px 32px;
+				font-size       : 0.85em;
+				background-color: rgb(36, 99, 130);
+				transition      : all 0.3s ease-out;
+			}
+
+			body > #nosotros > section > a:hover {
+				background-color: rgb(22, 60, 79);
+			}
+
+	body > #servicios {
+		width                : 100%;
+		padding              : 80px 0px 190px 0px;
+		background-image     : url('../images/servicios/fondo.jpg');
+		background-attachment: fixed;
+		background-size      : cover;
+		background-position  : center;
+		background-repeat    : no-repeat;
+		display              : flex;
+		align-items          : center;
+		justify-content      : center;
+		flex-direction       : column;
+	}
+
+		body > #servicios > h1 {
+			font-weight  : 100;
+			font-size    : 0.85em;
+			color        : rgb(255, 255, 255);
+			margin-bottom: 6px;
+		}
+
+		body > #servicios > span {
+			display       : inline-block;
+			text-transform: uppercase;
+			color         : rgb(255, 255, 255);
+			margin-bottom : 32px;
+		}
+
+		body > #servicios > section {
+			width          : 50%;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+		}
+
+			body > #servicios > section > section {
+				width          : 23%;
+				height         : 350px;
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+				flex-direction : column;
+				padding        : 16px;
+				border         : 2px solid rgb(255, 255, 255);
+				text-align     : center;
+				color          : rgb(255, 255, 255);
+				font-size      : 0.85em;
+			}
+
+				body > #servicios > section > section > img {
+					width        : 40%;
+					margin-bottom: 16px;
+				}
+
+				body > #servicios > section > section > h1 {
+					text-transform: uppercase;
+					margin-bottom : 16px;
+					font-weight   : 300;
+					position      : relative;
+				}
+
+				body > #servicios > section > section > p {
+					margin-bottom: 16px;
+				}
+
+				body > #servicios > section > section > a {
+					padding         : 6px 12px;
+					color           : rgb(0, 0, 0);
+					background-color: rgb(165, 156, 136);
+					font-size       : 0.75em;
+					font-weight     : 300;
+					text-transform  : uppercase;
+					transition      : all 0.3s ease-out;
+				}
+
+				body > #servicios > section > section > a:hover {
+					background-color: rgb(0, 0, 0);
+					color: rgb(255, 255, 255);
+				}
+
+	body > main {
+		width         : 100%;
+		padding-bottom: 80px;
+		position      : relative;
+		z-index       : 15;
+	}
+
+		body > main > img {
+			width: 100%;
+		}
+
+		body > main > section {
+			width           : 100%;
+			background-color: rgb(255, 255, 255);
+			display         : flex;
+			align-items     : center;
+			justify-content : center;
+			flex-direction  : column;
+		}
+
+			body > main > section > span {
+				font-size     : 0.85em;
+				text-transform: uppercase;
+				font-weight   : 100;
+				position      : relative;
+				display: flex;
+				justify-content: center;
+			}
+
+			body > main > section > span:before {
+				content         : '';
+				width           : 3px;
+				height          : 140px;
+				background-color: rgb(165, 156, 136);
+				position        : absolute;
+				top             : -152px;
+				z-index         : 9;
+			}
+
+			body > main > section > h1 {
+				font-weight  : 300;
+				white-space  : pre-line;
+				text-align   : center;
+				margin-bottom: 32px;
+			}
+
+			body > main > section > section {
+				width          : 80%;
+				display        : flex;
+				flex-flow      : row wrap;
+				justify-content: space-around;
+			}
+
+				body > main > section > section > article {
+					width           : 32%;
+					padding         : 16px;
+					background-color: rgb(245, 245, 245);
+					box-shadow      : 0 0 1px rgba(0, 0, 0, 0.5);
+					border-radius   : 6px;
+				}
+
+				body > main > section > section > article:last-of-type {
+					margin-bottom: 0px;
+				}
+
+				body > main > section > section > article:nth-of-type(4),
+				body > main > section > section > article:nth-of-type(5),
+				body > main > section > section > article:nth-of-type(6) {
+					margin-top: 24px;
+				}
+
+					body > main > section > section > article > header {
+						width              : 100%;
+						height             : 220px;
+						background-size    : cover;
+						background-position: center;
+						background-repeat  : no-repeat;
+						border-radius      : 6px;
+					}
+
+					body > main > section > section > article > section {
+						width   : 100%;
+						position: relative;
+					}
+
+						body > main > section > section > article > section > h1 {
+							width         : 100%;
+							padding       : 16px 0px;
+							color         : rgb(0, 0, 0);
+							text-transform: uppercase;
+							font-weight   : 300;
+							text-align    : center;
+						}
+
+						body > main > section > section > article > section > ul {
+							list-style      : none;
+							width           : 100%;
+							display         : flex;
+							align-items     : center;
+							justify-content : space-evenly;
+							color           : rgb(0, 0, 0);
+						}
+
+							body > main > section > section > article > section > ul > li {
+								margin-right  : 16px;
+								text-transform: uppercase;
+								font-size     : 0.75em;
+								color         : rgb(0, 0, 0);
+							}
+
+							body > main > section > section > article > section > ul > li:last-of-type {
+								margin-right: 0px;
+							}
+
+								body > main > section > section > article > section > ul > li > i {
+									color: rgb(36, 99, 130);
+								}
+
+						body > main > section > section > article > section > p {
+							width     : 100%;
+							padding   : 16px 0px;
+							text-align: justify;
+						}
+
+						body > main > section > section > article > section > a {
+							display         : inline-block;
+							padding         : 8px 18px;
+							background-color: rgb(36, 99, 130);
+							color           : rgb(255, 255, 255);
+							transition      : all 0.3s ease-out;
+							font-size       : 0.75em;
+							text-transform  : uppercase;
+						}
+
+						body > main > section > section > article > section > a:hover {
+							background-color: rgb(22, 60, 79);
+						}
+
+							body > main > section > section > article > section > a > i {
+								margin-left: 6px;
+							}
+
+			body > main > section > article {
+				width          : 80%;
+				display        : flex;
+				flex-flow      : row wrap;
+				justify-content: space-around;
+				align-items    : center;
+			}
+
+				body > main > section > article > h1 {
+					width         : 100%;
+					color         : rgb(0, 0, 0);
+					font-weight   : 100;
+					text-align    : center;
+					margin-bottom : 32px;
+					font-size     : 2em;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+
+				body > main > section > article > figure {
+					width: 48%;
+				}
+
+					body > main > section > article > figure > img {
+						width: 100%;
+					}
+
+					body > main > section > article > figure > figcaption {
+						width     : 100%;
+						margin-top: 12px;
+					}
+
+						body > main > section > article > figure > figcaption > ul {
+							list-style     : none;
+							width          : 100%;
+							display        : flex;
+							align-items    : center;
+							justify-content: flex-end;
+						}
+
+							body > main > section > article > figure > figcaption > ul > li {
+								margin-right  : 16px;
+								text-transform: uppercase;
+								font-size     : 0.75em;
+								color         : rgb(0, 0, 0);
+							}
+
+							body > main > section > article > figure > figcaption > ul > li:last-of-type {
+								margin-right: 0px;
+							}
+
+								body > main > section > article > figure > figcaption > ul > li > i {
+									color: rgb(36, 99, 130);
+								}
+
+				body > main > section > article > section {
+					width: 48%;
+				}
+
+					body > main > section > article > section > p {
+						text-align   : justify;
+						margin-bottom: 24px;
+					}
+
+					body > main > section > article > section > p:last-of-type {
+						margin-bottom: 0px;
+					}
+
+					body > main > section > article > section > a {
+						display         : inline-block;
+						margin-top      : 24px;
+						padding         : 8px 18px;
+						background-color: rgb(36, 99, 130);
+						color           : rgb(255, 255, 255);
+						transition      : all 0.3s ease-out;
+						font-size       : 0.75em;
+						text-transform  : uppercase;
+					}
+
+					body > main > section > article > section > a:hover {
+						background-color: rgb(22, 60, 79);
+					}
+
+	body > #contacto {
+		width                : 100%;
+		display              : flex;
+		align-items          : center;
+		justify-content      : center;
+		flex-direction       : column;
+		padding-top          : 80px ;
+		background-image     : url('../images/contacto/fondo.jpg');
+		background-size      : cover;
+		background-position  : center;
+		background-attachment: fixed;
+		color                : rgb(255, 255, 255);
+	}
+
+	body > #contacto > span {
+		font-weight   : 300;
+		text-transform: uppercase;
+	}
+
+	body > #contacto > h1 {
+		margin-bottom: 32px;
+	}
+
+	body > #contacto > form {
+		width          : 50%;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+		margin-bottom  : 80px;
+	}
+
+		body > #contacto > form > div {
+			width        : 49%;
+			margin-bottom: 18px;
+		}
+
+		body > #contacto > form > div:nth-of-type(5),
+		body > #contacto > form > div:nth-of-type(6) {
+			margin-bottom: 0px;
+		}
+
+			body > #contacto > form > div > input {
+				width           : 100%;
+				background-color: transparent;
+				color           : rgb(255, 255, 255);
+				padding         : 6px;
+				border          : 1px solid rgb(255, 255, 255);
+			}
+
+			body > #contacto > form > div > input::placeholder {
+				color: rgb(255, 255, 255);
+			}
+
+			body > #contacto > form > div > button {
+				width           : 100%;
+				background-color: rgb(22, 60, 79);
+				color           : rgb(255, 255, 255);
+				padding         : 6px;
+				border          : none;
+				cursor          : pointer;
+				transition      : all 0.3s ease-out;
+			}
+
+			body > #contacto > form > div > button:hover {
+				background-color: rgb(6, 27, 37);
+			}
+
+			body > #contacto > form > div > div {
+				width           : 100%;
+				background-color: rgb(234, 0, 0);
+				color           : rgb(255, 255, 255);
+				font-size       : 0.85em;
+				font-weight     : 200;
+				padding         : 6px;
+				display         : none;
+			}
+
+		body > #contacto > form > figure {
+			width     : 100%;
+			margin-top: 18px;
+			display   : none;
+		}
+
+			body > #contacto > form > figure > img {
+				width : 60px;
+				margin: auto;
+			}
+
+		body > #contacto > map {
+			width : 100%;
+			height: 300px;
+		}
+
+	body > footer {
+		width              : 100%;
+		background-image   : url('../images/pie/fondo.jpg');
+		background-size    : cover;
+		background-position: center;
+		color              : rgb(255, 255, 255);
+	}
+
+		body > footer > section {
+			width      : 80%;
+			margin     : auto;
+			padding    : 80px 0px;
+			display    : flex;
+			align-items: center;
+		}
+
+			body > footer > section > section {
+				width: 33.33%;
+			}
+
+				body > footer > section > section:first-of-type > h1 {
+					font-weight   : 300;
+					text-transform: uppercase;
+					margin-bottom : 32px;
+					position      : relative;
+				}
+
+				body > footer > section > section:first-of-type > h1:before {
+					content         : '';
+					width           : 3px;
+					height          : 80px;
+					background-color: rgb(165, 156, 136);
+					position        : absolute;
+					top             : -112px;
+					left            : 0;
+					z-index         : 9;
+				}
+
+				body > footer > section > section:first-of-type > ul {
+					list-style: none;
+				}
+
+					body > footer > section > section:first-of-type > ul > li {
+						font-size    : 0.85em;
+						margin-bottom: 6px;
+					}
+
+						body > footer > section > section:first-of-type > ul > li > a {
+							font-weight: 300;
+							color      : rgb(255, 255, 255);
+							position   : relative;
+						}
+
+						body > footer > section > section:first-of-type > ul > li > a:before {
+							content         : '';
+							width           : 100%;
+							height          : 1px;
+							background-color: rgb(255, 255, 255);
+							position        : absolute;
+							bottom          : -4px;
+							left            : 0px;
+							transform       : scale(0);
+							transition      : all 0.2s;
+						}
+
+						body > footer > section > section:first-of-type > ul > li > a:hover:before {
+							transform: scale(1);
+						}
+
+				body > footer > section > section:last-of-type > img {
+					width : 75%;
+					margin: auto;
+				}
+
+		body > footer > footer {
+			width     : 100%;
+			padding   : 16px;
+			font-size : 0.85em;
+			text-align: center;
+			border-top: 1px solid rgb(255, 255, 255);
+		}
+
+			body > footer > footer > a {
+				display: inline-block;
+			}
+
+#servicio {
+	width           : 100%;
+	background-color: rgb(255, 255, 255);
+}
+
+	#servicio > header {
+		width          : 100%;
+		height         : 50vh;
+		display        : flex;
+		align-items    : center;
+		justify-content: center;
+		flex-direction : column;
+	}
+
+		#servicio > header > h1 {
+			font-weight  : 100;
+			font-size    : 0.85em;
+			color        : rgb(0, 0, 0);
+			margin-bottom: 6px;
+			padding-top  : 100px;
+		}
+
+		#servicio > header > sub {
+			text-transform: uppercase;
+			margin-bottom : 32px;
+		}
+
+		#servicio > header > section {
+			width          : 864px;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+		}
+
+			#servicio > header > section > a {
+				display         : flex;
+				align-items     : center;
+				justify-content : center;
+				flex-direction  : column;
+				width           : 200px;
+				height          : 200px;
+				background-color: rgb(25, 34, 62);
+				transition      : all 0.3s ease-out;
+				padding         : 16px;
+			}
+
+			#servicio > header > section > a:hover {
+				background-color: rgb(118, 118, 118);
+			}
+
+			.active-service {
+				background-color: rgb(118, 118, 118) !important;
+			}
+
+				#servicio > header > section > a > img {
+					width        : 35%;
+					margin-bottom: 12px;
+				}
+
+				#servicio > header > section > a > span {
+					font-weight   : 300;
+					color         : rgb(255, 255, 255);
+					text-transform: uppercase;
+					font-size     : 0.85em;
+					text-align    : center;
+				}
+
+	#servicio > section {
+		width          : 100%;
+		position       : relative;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#servicio > section > section {
+			width   : 50%;
+			overflow: hidden;
+		}
+
+		#servicio > section > section:first-of-type {
+			background-color: rgb(57, 135, 174);
+			padding         : 64px;
+			position        : relative;
+		}
+
+			#servicio > section > section:first-of-type > h1 {
+				font-weight   : 300;
+				text-transform: uppercase;
+				margin-bottom : 32px;
+				position      : relative;
+				z-index       : 10;
+			}
+
+			#servicio > section > section:first-of-type > h1:before {
+				content         : '';
+				width           : 20px;
+				height          : 1px;
+				background-color: rgb(0, 0, 0);
+				position        : absolute;
+				left            : 0px;
+				bottom          : 0px;
+			}
+
+			#servicio > section > section:first-of-type > p {
+				text-align   : justify;
+				margin-bottom: 16px;
+				position     : relative;
+				z-index      : 10;
+			}
+
+			#servicio > section > section:first-of-type > p:last-of-type {
+				margin-bottom: 0px;
+			}
+
+			#servicio > section > section:first-of-type > img {
+				position: absolute;
+				width   : 300px;
+				left    : -32px;
+				bottom  : -32px;
+				opacity : 0.1;
+				z-index : 9;
+			}
+
+		#servicio > section > section:last-of-type {
+			background-size  : cover;
+			background-repeat: no-repeat;
+		}
+
+#errors {
+	width           : 100%;
+	height          : 100vh;
+	display         : flex;
+	align-items     : center;
+	justify-content : center;
+	background-color: rgb(240, 240, 240);
+}
+
+	#errors > h1 {
+		font-size     : 2em;
+		text-transform: uppercase;
+		font-weight   : 100;
+		letter-spacing: 2px;
+		margin-top    : 100px;
+	}
+
+.pagination {
+	width          : 80%;
+	margin         : auto;
+	margin-top     : 24px;
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	list-style     : none;
+}
+
+	.pagination > li {
+		width           : 28px;
+		height          : 28px;
+		position        : relative;
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		background-color: rgb(36, 99, 130);
+		color           : rgb(255, 255, 255);
+		margin-right    : 6px;
+		font-size       : 0.85em;
+		font-weight     : 300;
+	}
+
+	.pagination > li:last-of-type {
+		margin-right: 0px;
+	}
+
+	.pagination > .disabled {
+		background-color: rgb(22, 60, 79);
+		color           : rgba(0, 0, 0, 0.25);
+		cursor          : no-drop;
+	}
+
+	.pagination > .active {
+		transform: scale(1.15);
+	}
+
+		.pagination > li > a {
+			width          : 100%;
+			height         : 100%;
+			color          : rgb(255, 255, 255);
+			transition     : all 0.3s ease-out;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+		}
+
+		.pagination > li > a:hover {
+			background-color: rgb(22, 60, 79);
+		}
+
+@media all and (orientation: landscape) and (max-width: 1030px) {
+	body > button {
+		display   : block;
+		transition: all 0.3s;
+		z-index   : 10000;
+	}
+
+		.active-btn > span {
+			margin-bottom: 8px;
+		}
+
+	body > nav {
+		height          : 100vh;
+		background-color: transparent;
+		margin-left     : -100%;
+		z-index         : 1000;
+	}
+
+	.active-nav {
+		margin-left: 0px !important;
+	}
+
+		body > nav > section {
+			transition: all 0.3s ease-out;
+		}
+
+		body > nav > section:nth-of-type(1) {
+			width          : 100%;
+			height         : 33.33vh;
+			padding-left   : 0px;
+			justify-content: center;
+		}
+
+		body > nav > section:nth-of-type(2) {
+			width           : 100%;
+			height          : 33.33vh;
+			background-color: rgb(255, 255, 255);
+			justify-content : center;
+		}
+
+				body > nav > section:nth-of-type(2) > ul > li:first-of-type {
+					margin-left: 0px
+				}
+
+		body > nav > section:nth-of-type(3) {
+			width          : 100%;
+			height         : 33.33vh;
+			justify-content: center;
+		}
+
+	body > header {
+		padding-top  : 0px;
+		padding-left : 0px;
+		padding-right: 0px;
+		border-left  : none;
+		border-right : none;
+	}
+
+		body > #nosotros > section > p {
+			width: 80%;
+		}
+
+		body > #servicios > section {
+			width: 80%;
+		}
+
+			body > main > section > section {
+				width: 98%;
+			}
+
+			body > main > section > article {
+				width: 98%;
+			}
+
+	body > #contacto > form {
+		width: 80%;
+	}
+
+		#servicio > header > h1 {
+			padding-top: 0px;
+		}
+
+			#servicio > header > section > a {
+				width : 180px;
+				height: 180px;
+			}
+}
+
+@media all and (orientation: portrait) and (max-width: 770px) {
+	body > button {
+		display   : block;
+		transition: all 0.3s;
+		z-index   : 10000;
+	}
+
+		.active-btn > span {
+			margin-bottom: 8px;
+		}
+
+	body > nav {
+		height          : 100vh;
+		background-color: transparent;
+		margin-left     : -100%;
+		z-index         : 1000;
+	}
+
+	.active-nav {
+		margin-left: 0px !important;
+	}
+
+		body > nav > section {
+			transition: all 0.3s ease-out;
+		}
+
+		body > nav > section:nth-of-type(1) {
+			width          : 100%;
+			height         : 33.33vh;
+			padding-left   : 0px;
+			justify-content: center;
+		}
+
+		body > nav > section:nth-of-type(2) {
+			width           : 100%;
+			height          : 33.33vh;
+			background-color: rgb(255, 255, 255);
+			justify-content : center;
+		}
+
+				body > nav > section:nth-of-type(2) > ul > li:first-of-type {
+					margin-left: 0px
+				}
+
+		body > nav > section:nth-of-type(3) {
+			width          : 100%;
+			height         : 33.33vh;
+			justify-content: center;
+		}
+
+	body > header {
+		padding-top  : 0px;
+		padding-left : 0px;
+		padding-right: 0px;
+		border-left  : none;
+		border-right : none;
+	}
+
+	body > #nosotros {
+		padding-bottom: 30px;
+	}
+
+		body > #nosotros > section > p {
+			width: 80%;
+		}
+
+	body > #servicios {
+		padding: 80px 0px 100px 0px;
+	}
+
+		body > #servicios > section {
+			width: 80%;
+		}
+
+			body > #servicios > section > section {
+				width : 48%;
+				height: 320px;
+			}
+
+			body > #servicios > section > section:nth-of-type(3),
+			body > #servicios > section > section:nth-of-type(4) {
+				margin-top: 24px;
+			}
+
+	body > main {
+		padding-bottom: 40px;
+	}
+
+		body > main > img {
+			position: relative;
+			z-index : 400;
+		}
+
+				body > main > section > section > article {
+					width        : 100%;
+					margin-bottom: 24px;
+				}
+
+				body > main > section > section > article:last-of-type {
+					margin-bottom: 0px;
+				}
+
+				body > main > section > section > article:nth-of-type(4),
+				body > main > section > section > article:nth-of-type(5),
+				body > main > section > section > article:nth-of-type(6) {
+					margin-top: 0px;
+				}
+
+			body > main > section > article {
+				width: 80%;
+			}
+
+				body > main > section > article > figure {
+					width        : 100%;
+					margin-bottom: 32px;
+				}
+
+				body > main > section > article > section {
+					width: 100%;
+				}
+
+	body > #contacto > form {
+		width: 80%;
+	}
+
+		#servicio > header > section {
+			width: 80%;
+		}
+
+			#servicio > header > h1 {
+				padding-top: 0px;
+			}
+
+				#servicio > header > section > a {
+					width : 140px;
+					height: 140px;
+				}
+
+					#servicio > header > section > a > span {
+						font-size: 0.75em;
+					}
+
+		#servicio > section {
+			flex-direction: column-reverse;
+		}
+
+			#servicio > section > section {
+				width: 100%;
+			}
+
+			#servicio > section > section:last-of-type {
+				height: 250px;
+			}
+}
+
+@media all and (orientation: landscape) and (max-width: 740px) {
+	body > #nosotros {
+		padding-bottom: 24px;
+	}
+
+	body > #servicios {
+		padding-bottom: 100px;
+	}
+
+		body > #servicios > section > section {
+			width: 48%;
+		}
+
+		body > #servicios > section > section:nth-of-type(3),
+		body > #servicios > section > section:nth-of-type(4) {
+			margin-top: 24px;
+		}
+
+	body > main {
+		padding-bottom: 40px;
+	}
+
+		body > main > img {
+			position: relative;
+			z-index: 400;
+		}
+
+			body > main > section > section {
+				width: 80%;
+			}
+
+				body > main > section > section > article {
+					width        : 100%;
+					margin-bottom: 24px;
+				}
+
+				body > main > section > section > article:last-of-type {
+					margin-bottom: 0px;
+				}
+
+			body > main > section > article {
+				width: 80%;
+			}
+
+				body > main > section > article > figure {
+					width        : 100%;
+					margin-bottom: 24px;
+				}
+
+				body > main > section > article > section {
+					width: 100%;
+				}
+
+	body > footer > section > section {
+		width: 50%;
+	}
+
+	#servicio > header {
+		height: 85vh;
+	}
+
+		#servicio > header > section {
+			width: 100%;
+		}
+
+			#servicio > header > section > a {
+				width: 23%;
+			}
+
+				#servicio > section {
+					flex-direction: column-reverse;
+				}
+
+					#servicio > section > section:first-of-type {
+						width  : 100%;
+						padding: 36px;
+					}
+
+					#servicio > section > section:last-of-type {
+						width : 100%;
+						height: 300px;
+					}
+}
+
+@media all and (orientation: portrait) and (max-width: 420px) {
+	body > header {
+		height: 75vh;
+	}
+
+	body > #servicios > section > section {
+		width        : 100%;
+		margin-bottom: 24px;
+	}
+
+	body > #servicios > section > section:last-of-type {
+		margin-bottom: 0px;
+	}
+
+	body > #servicios > section > section:nth-of-type(3),
+	body > #servicios > section > section:nth-of-type(4) {
+		margin-top: 0px;
+	}
+
+	body > main > img {
+		position: relative;
+		z-index : 300;
+	}
+
+		body > main > section > section > article > header {
+			height: 150px;
+		}
+
+	body > #contacto > form > input {
+		width: 100%;
+	}
+
+	body > #contacto > form > input:last-of-type {
+		width: 100%;
+		margin-bottom: 18px;
+	}
+
+	body > footer > section {
+		justify-content: space-between;
+		flex-direction : column;
+	}
+
+		body > footer > section > section {
+			width     : 100%;
+			text-align: center;
+		}
+
+		body > footer > section > section:last-of-type {
+			margin-top: 32px;
+		}
+
+	#servicio > header {
+		height: 75vh;
+	}
+
+		#servicio > header > section {
+			width: 90%;
+		}
+
+			#servicio > header > section > a {
+				width: 47%;
+			}
+
+			#servicio > header > section > a:nth-of-type(3),
+			#servicio > header > section > a:nth-of-type(4) {
+				margin-top: 18px;
+			}
+
+		#servicio > section > section:first-of-type {
+			padding: 32px;
+		}
+}
